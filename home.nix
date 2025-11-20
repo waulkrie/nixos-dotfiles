@@ -61,6 +61,7 @@ in
           nix shell nixpkgs#"$pkg"
         fi
       '';
+    })
   ];
 
   # Git configuration
