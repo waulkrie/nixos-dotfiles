@@ -54,8 +54,8 @@
      wireplumber
 
      #qt support
-     qt5-wayland
-     qt6-wayland
+#     qt5-wayland
+#     qt6-wayland
 
 
    ];
