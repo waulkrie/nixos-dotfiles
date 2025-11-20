@@ -18,14 +18,7 @@ in
 #  home.homeDirectory = "/home/anon";
   home.stateVersion = "25.05";
   
-  # enable user lvl fonts
-  fonts.fontconfig.enable = true;  
-  
-  fonts.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.hack
-      nerd-fonts.zed-mono
-  ];
+
 
   # Import modules
   imports = [

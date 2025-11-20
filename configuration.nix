@@ -60,6 +60,15 @@
 
    ];
 
+  # enable user lvl fonts
+  fonts.fontconfig.enable = true;  
+  
+  fonts.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.hack
+      nerd-fonts.zed-mono
+  ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are
