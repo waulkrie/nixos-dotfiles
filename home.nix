@@ -57,7 +57,9 @@ in
       '';
     })
 
-    (pkgs.nerdfonts.override { fonts = [ "jetbrains-mono" "hack" "ubuntu" "ubuntu-mono" ]});
+    (pkgs.nerdfonts.override { 
+        fonts = [ "jetbrains-mono" "hack" "ubuntu" "ubuntu-mono" ];
+    })
   ];
 
   # Git configuration
