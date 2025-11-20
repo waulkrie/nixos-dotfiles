@@ -20,6 +20,12 @@ in
   
   # enable user lvl fonts
   fonts.fontconfig.enable = true;  
+  
+  fonts.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.hack
+      nerd-fonts.zed-mono
+  ];
 
   # Import modules
   imports = [
@@ -55,10 +61,6 @@ in
           nix shell nixpkgs#"$pkg"
         fi
       '';
-    })
-
-    (pkgs.nerd-fonts.override { 
-        fonts = [ "jetbrains-mono" "hack" "ubuntu" "ubuntu-mono" ];})
   ];
 
   # Git configuration
