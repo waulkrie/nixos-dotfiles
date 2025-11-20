@@ -17,6 +17,9 @@ in
   home.username = "anon";
 #  home.homeDirectory = "/home/anon";
   home.stateVersion = "25.05";
+  
+  # enable user lvl fonts
+  fonts.fontconfig.enable = true;  
 
   # Import modules
   imports = [
@@ -53,6 +56,8 @@ in
         fi
       '';
     })
+
+    (pkgs.nerdfonts.override { fonts = [ "jetbrains-mono" "hack" "ubuntu" "ubuntu-mono" ]});
   ];
 
   # Git configuration
