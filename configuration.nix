@@ -13,7 +13,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
+  time.timeZone = "America/Chicago";
   services.getty.autologinUser = "anon";
 
   networking.hostName = "nixos-hypr-wk"; # Define your hostname.
@@ -43,7 +44,9 @@
 
      hyprpolkitagent
      waybar
-
+     
+     nautilus
+     wofi
      vim 
      wget
      curl
