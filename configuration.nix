@@ -23,7 +23,7 @@
     xwayland.enable = true;
   };
 
-  programs.hyprlock.enabled = true;
+  programs.hyprlock.enable = true;
   security.pam.services.hyprlock = {};
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
