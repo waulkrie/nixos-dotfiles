@@ -50,6 +50,8 @@
      vim 
      wget
      curl
+     btop
+     fastfetch
      
      #terminals
      kitty
