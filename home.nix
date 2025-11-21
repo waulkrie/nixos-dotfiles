@@ -60,9 +60,10 @@ in
   # Git configuration
   programs.git = {
     enable = true;
-    userName = "waulkrie";
-    userEmail = "aobare@gmail.com";
+    settings.user.name = "waulkrie";
+    settings.user.email = "aobare@gmail.com";
   };
+
 
   # Bash configuration
   programs.bash = {
