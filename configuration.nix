@@ -23,6 +23,9 @@
     xwayland.enable = true;
   };
 
+  programs.hyprlock.enabled = true;
+  security.pam.services.hyprlock = {};
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.anon = {
      isNormalUser = true;
