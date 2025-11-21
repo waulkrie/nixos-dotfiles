@@ -79,6 +79,7 @@
       nerd-fonts.jetbrains-mono
       nerd-fonts.hack
       nerd-fonts.zed-mono
+      powerline-fonts
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

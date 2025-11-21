@@ -11,6 +11,7 @@ let
     foot = "foot";
     nvim = "nvim";
     kitty = "kitty";
+    ghostty = "ghostty";
   };
 in
 {
@@ -39,7 +40,10 @@ in
     gcc
     nodejs
     python3
-    
+    zig
+    zls
+    bun
+
     # Nix utilities
     (pkgs.writeShellApplication {
       name = "ns";

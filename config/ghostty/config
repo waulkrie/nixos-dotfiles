@@ -27,7 +27,7 @@
 # # separated by equals signs.
 # font-family = Iosevka
 # window-padding-x = 2
-#
+  font-size = 11.5
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
 # key=value
