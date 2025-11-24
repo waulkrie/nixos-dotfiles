@@ -45,7 +45,7 @@ in
     bun
 
     # Misc
-    webcord
+    vesktop
 
     # Nix utilities
     (pkgs.writeShellApplication {

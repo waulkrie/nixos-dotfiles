@@ -20,7 +20,7 @@
   services.getty.autologinUser = "anon";
   services.devmon.enable = true;
   services.gvfs.enable = true;
-  services.udisk2.enable = true;
+  services.udisks2.enable = true;
 
   networking.hostName = "nixos-hypr-wk"; # Define your hostname.
 
