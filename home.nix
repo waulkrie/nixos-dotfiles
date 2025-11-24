@@ -44,6 +44,9 @@ in
     zls
     bun
 
+    # Misc
+    webcord
+
     # Nix utilities
     (pkgs.writeShellApplication {
       name = "ns";

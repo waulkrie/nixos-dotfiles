@@ -15,7 +15,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
   
   time.timeZone = "America/Chicago";
+
+# services
   services.getty.autologinUser = "anon";
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisk2.enable = true;
 
   networking.hostName = "nixos-hypr-wk"; # Define your hostname.
 
@@ -44,9 +49,11 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
-
+    
+    # hypr stuff
      hyprpolkitagent
      waybar
+     hyprshot
      
      nautilus
      wofi
