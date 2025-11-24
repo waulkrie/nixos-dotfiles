@@ -31,11 +31,12 @@
 
   programs.hyprlock.enable = true;
   security.pam.services.hyprlock = {};
+  security.polkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.anon = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" "lp" "scanner" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "lp" "scanner" "storage" ];
      packages = with pkgs; [
        tree
      ];
