@@ -32,6 +32,7 @@ in
     #Hyprland stuffs
     hyprcursor
     rose-pine-hyprcursor
+    hyprpaper
 
     # CLI tools
     ripgrep
