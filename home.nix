@@ -28,6 +28,11 @@ in
 
   # Home packages
   home.packages = with pkgs; [
+
+    #Hyprland stuffs
+    hyprcursor
+    rose-pine-hyprcursor
+
     # CLI tools
     ripgrep
     fd
