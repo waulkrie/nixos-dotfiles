@@ -86,7 +86,7 @@ in
       ll = "eza -la";
       ls = "eza";
       cat = "bat";
-      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-hypr-wk";
+      rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles";
     };
     
     # Auto-start Hyprland on login (TTY1)
