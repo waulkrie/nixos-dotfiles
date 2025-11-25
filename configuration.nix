@@ -13,6 +13,20 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
+  
   # Hyprland
   programs.hyprland = {
     enable = true;
