@@ -1,125 +1,19 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
+# hosts/work/configuration.nix
+# descrete settings per host
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  
-  time.timeZone = "America/Chicago";
-
-# services
-  services.getty.autologinUser = "anon";
-  services.devmon.enable = true;
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-
-  networking.hostName = "nixos-hypr-wk"; # Define your hostname.
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  programs.hyprlock.enable = true;
-  security.pam.services.hyprlock = {};
-  security.polkit.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.anon = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" "lp" "scanner" "storage" ];
-     packages = with pkgs; [
-       tree
-     ];
-   };
-
-  programs.firefox.enable = true;
-  programs.nix-ld.enable = true;
-  nixpkgs.config.allowUnfree = true;
-  programs.steam.enable = true;
-
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-   environment.systemPackages = with pkgs; [
-    
-    # hypr stuff
-     hyprpolkitagent
-     waybar
-     hyprshot
-     
-     nautilus
-     wofi
-     vim 
-     wget
-     curl
-     btop
-     fastfetch
-     
-     #terminals
-     kitty
-     ghostty
-     foot
-
-     #notification manager
-     mako
-
-     #sound
-     pipewire
-     wireplumber
-
-     #qt support
-#     qt5-wayland
-#     qt6-wayland
-
-
-   ];
-
-  # enable user lvl fonts
-  fonts.fontconfig.enable = true;  
-  
-  fonts.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.hack
-      nerd-fonts.zed-mono
-      powerline-fonts
+  imports = [
+    ../../configuration.nix  # Import shared config
+    ./hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  networking.hostName = "nixos-hypr-wk";
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.05"; # Did you read the comment?
+  # Work-specific: autologin
+  services.getty.autologinUser = "anon";
 
+  # Standard boot (no Secure Boot)
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 }
-

@@ -9,6 +9,14 @@
     };
   };
 
+  # home_config =  {
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  #   users.anon = import ./home.nix;
+  #   backupFileExtension = "backup";
+  # };
+
+
   outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       
@@ -22,7 +30,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.anon = import ./home.nix;
-              backupFileExtension = "backup";
+              backupFileExtension = "bk";
             };
           }
         ];
@@ -39,7 +47,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.anon = import ./home.nix;
-              backupFileExtension = "backup";
+              backupFileExtension = "bk";
             };
           }
         ];
