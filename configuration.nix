@@ -2,10 +2,12 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 # SHARED ACCROSS ALL HOSTS
-
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   time.timeZone = "America/Chicago";
 
   # Services
@@ -26,7 +28,7 @@
       cups-browsed
     ];
   };
-  
+
   # Hyprland
   programs.hyprland = {
     enable = true;
@@ -40,8 +42,8 @@
   # User config
   users.users.anon = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "lp" "scanner" "storage" ];
-    packages = with pkgs; [ tree ];
+    extraGroups = ["wheel" "networkmanager" "lp" "scanner" "storage"];
+    packages = with pkgs; [tree];
   };
 
   # Common programs
@@ -56,31 +58,35 @@
     hyprpolkitagent
     waybar
     hyprshot
-   
+
+    # development
+    alejandra #nix format
+    nixd
+
     # utils
     nautilus
     wofi
-    vim 
+    vim
     wget
     curl
     btop
     fastfetch
-    
+
     # terminals
     kitty
     ghostty
     foot
-    
+
     # notification manager
     mako
-    
+
     # sound
     pipewire
     wireplumber
   ];
 
   # Fonts
-  fonts.fontconfig.enable = true;  
+  fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.hack
@@ -88,7 +94,7 @@
     powerline-fonts
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   system.stateVersion = "25.05";
 }

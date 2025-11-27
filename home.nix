@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
-  
+
   # Directories to symlink to .config
   configs = {
     hypr = "hypr";
@@ -13,13 +15,10 @@ let
     kitty = "kitty";
     ghostty = "ghostty";
   };
-in
-{
+in {
   home.username = "anon";
-#  home.homeDirectory = "/home/anon";
+  #  home.homeDirectory = "/home/anon";
   home.stateVersion = "25.05";
-  
-
 
   # Import modules
   imports = [
@@ -28,7 +27,6 @@ in
 
   # Home packages
   home.packages = with pkgs; [
-
     #Hyprland stuffs
     hyprcursor
     rose-pine-hyprcursor
@@ -41,7 +39,9 @@ in
     bat
     eza
     btop
-    
+    lazygit
+    trash-cli
+
     # Development
     gcc
     nodejs
@@ -52,6 +52,7 @@ in
 
     # Misc
     vesktop
+    imagemagick
 
     # Nix utilities
     (pkgs.writeShellApplication {
@@ -77,7 +78,6 @@ in
     settings.user.email = "aobare@gmail.com";
   };
 
-
   # Bash configuration
   programs.bash = {
     enable = true;
@@ -88,7 +88,7 @@ in
       cat = "bat";
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles";
     };
-    
+
     # Auto-start Hyprland on login (TTY1)
     profileExtra = ''
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -98,10 +98,12 @@ in
   };
 
   # Symlink config directories (Tony's approach)
-  xdg.configFile = builtins.mapAttrs (name: subpath: {
-    source = create_symlink "${dotfiles}/${subpath}";
-    recursive = true;
-  }) configs;
+  xdg.configFile =
+    builtins.mapAttrs (name: subpath: {
+      source = create_symlink "${dotfiles}/${subpath}";
+      recursive = true;
+    })
+    configs;
 
   # GTK theme for Nautilus and other GTK apps
   gtk = {

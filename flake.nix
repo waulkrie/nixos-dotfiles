@@ -1,5 +1,5 @@
 {
-  description = "NixOS with Hyprland + Omarchy Components";
+  description = "NixOS with Hyprland";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -16,10 +16,13 @@
   #   backupFileExtension = "backup";
   # };
 
-
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  }: {
     nixosConfigurations = {
-      
       nixos-hypr-wk = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
