@@ -29,6 +29,12 @@
     ];
   };
 
+  # Seurity
+  security.pam.services.hyprlock = {};
+  security.polkit.enable = true;
+  networking.firewall.checkReversePath = false;
+  networking.networkmanager.enable = true;
+
   # Hyprland
   programs.hyprland = {
     enable = true;
@@ -36,8 +42,6 @@
   };
 
   programs.hyprlock.enable = true;
-  security.pam.services.hyprlock = {};
-  security.polkit.enable = true;
 
   # User config
   users.users.anon = {
@@ -71,6 +75,8 @@
     curl
     btop
     fastfetch
+    wireguard-tools
+    protonvpn-gui
 
     # terminals
     kitty
