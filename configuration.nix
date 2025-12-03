@@ -62,6 +62,7 @@
     hyprpolkitagent
     waybar
     hyprshot
+    hyprlauncher
 
     # development
     alejandra #nix format
@@ -69,7 +70,6 @@
 
     # utils
     nautilus
-    wofi
     vim
     wget
     curl
