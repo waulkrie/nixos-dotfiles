@@ -20,10 +20,11 @@
   #   backupFileExtension = "bk";
   # };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
+    noctalia,
     ...
   }: {
     nixosConfigurations = {
@@ -31,12 +32,17 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/work/configuration.nix
-          ./modules/noctalia.nix
+          inputs.noctalia.homeModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = inputs;
+              sharedModules = [
+                {_module.args.inputs = inputs;}
+                inputs.noctalia.homeModules.default
+              ];
               users.anon = import ./home.nix;
               backupFileExtension = "bk";
             };
@@ -49,12 +55,17 @@
         modules = [
           # lanzaboote.nixosModules.lanzaboote
           ./hosts/home_desktop/configuration.nix
-          ./modules/noctalia.nix
+          noctalia.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = inputs;
+              sharedModules = [
+                {_module.args.inputs = inputs;}
+                inputs.noctalia.homeModules.default
+              ];
               users.anon = import ./home.nix;
               backupFileExtension = "bk";
             };
