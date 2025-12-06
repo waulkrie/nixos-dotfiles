@@ -14,6 +14,8 @@
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+  services.displayManager.ly.enable = true;
+  systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
 
   services.avahi = {
     enable = true;
@@ -29,7 +31,7 @@
     ];
   };
 
-  # Seurity
+  # Security
   security.pam.services.hyprlock = {};
   security.polkit.enable = true;
   networking.firewall.checkReversePath = false;
@@ -63,6 +65,7 @@
     waybar
     hyprshot
     hyprlauncher
+    quickshell
 
     # development
     alejandra #nix format
