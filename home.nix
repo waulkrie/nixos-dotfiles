@@ -23,6 +23,7 @@ in {
   # Import modules
   imports = [
     ./modules/neovim.nix
+    ./modules/noctalia.nix
   ];
 
   # Home packages

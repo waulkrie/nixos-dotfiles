@@ -36,6 +36,8 @@
   security.polkit.enable = true;
   networking.firewall.checkReversePath = false;
   networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
+  powerManagement.enable = true;
 
   # Hyprland
   programs.hyprland = {

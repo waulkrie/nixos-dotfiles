@@ -7,13 +7,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  # home_config =  {
+  # home_config = {
   #   useGlobalPkgs = true;
   #   useUserPackages = true;
   #   users.anon = import ./home.nix;
-  #   backupFileExtension = "backup";
+  #   backupFileExtension = "bk";
   # };
 
   outputs = {
@@ -27,6 +31,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/work/configuration.nix
+          ./modules/noctalia.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -44,6 +49,7 @@
         modules = [
           # lanzaboote.nixosModules.lanzaboote
           ./hosts/home_desktop/configuration.nix
+          ./modules/noctalia.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
