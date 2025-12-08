@@ -32,7 +32,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/work/configuration.nix
-          inputs.noctalia.homeModules.default
+          # noctalia.homeModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -55,7 +55,7 @@
         modules = [
           # lanzaboote.nixosModules.lanzaboote
           ./hosts/home_desktop/configuration.nix
-          noctalia.nixosModules.default
+          # noctalia.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
