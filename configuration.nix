@@ -81,6 +81,7 @@
     fastfetch
     wireguard-tools
     protonvpn-gui
+    traceroute
 
     # terminals
     kitty
