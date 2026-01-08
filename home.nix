@@ -51,6 +51,7 @@ in {
     zig
     zls
     bun
+    dotnetCorePackages.sdk_9_0-bin
 
     # Misc
     vesktop
