@@ -52,6 +52,9 @@ in {
     zls
     bun
     dotnetCorePackages.sdk_9_0-bin
+    claude-code
+    vscode-fhs
+    opencode
 
     # Misc
     vesktop

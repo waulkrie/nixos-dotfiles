@@ -11,6 +11,8 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-code.url = "github:sadjow/claude-code-nix";
+    opencode.url = "github:anomalyco/opencode";
   };
 
   # home_config = {
@@ -25,6 +27,7 @@
     nixpkgs,
     home-manager,
     noctalia,
+    claude-code,
     ...
   }: {
     nixosConfigurations = {
@@ -33,6 +36,9 @@
         modules = [
           ./hosts/work/configuration.nix
           # noctalia.homeModules.default
+          {
+            nixpkgs.overlays = [claude-code.overlays.default];
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager = {

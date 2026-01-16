@@ -71,6 +71,7 @@
     # development
     alejandra #nix format
     nixd
+    uv
 
     # utils
     nautilus
@@ -82,6 +83,7 @@
     wireguard-tools
     protonvpn-gui
     traceroute
+    google-chrome
 
     # terminals
     kitty
