@@ -55,7 +55,15 @@
 
   # Common programs
   programs.firefox.enable = true;
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      glib
+      libgcc
+    ];
+  };
   nixpkgs.config.allowUnfree = true;
   programs.steam.enable = true;
 
@@ -71,7 +79,6 @@
     # development
     alejandra #nix format
     nixd
-    uv
 
     # utils
     nautilus

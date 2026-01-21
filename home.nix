@@ -83,6 +83,11 @@ in {
         fi
       '';
     })
+
+    (pkgs.writeShellScriptBin "uv" ''
+      export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.zlib}/lib:$LD_LIBRARY_PATH"
+      exec ${pkgs.uv}/bin/uv "$@"
+    '')
   ];
 
   # Git configuration
