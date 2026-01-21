@@ -59,6 +59,9 @@ in {
     # Misc
     vesktop
     imagemagick
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en_US
 
     # Nix utilities
     (pkgs.writeShellApplication {
