@@ -54,6 +54,11 @@ in {
     dotnetCorePackages.sdk_9_0-bin
     claude-code
     vscode-fhs
+    rust-analyzer
+    rustc
+    cargo
+    clippy
+    rustPlatform.rustLibSrc
     opencode
 
     # Misc
