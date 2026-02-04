@@ -79,6 +79,7 @@
     # development
     alejandra #nix format
     nixd
+    devenv
 
     # utils
     nautilus
