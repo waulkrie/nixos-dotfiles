@@ -38,6 +38,8 @@
   networking.networkmanager.enable = true;
   powerManagement.enable = true;
 
+  nix.settings.trusted-users = ["root" "anon"];
+
   # Hyprland
   programs.hyprland = {
     enable = true;
