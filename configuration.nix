@@ -16,6 +16,7 @@
   services.udisks2.enable = true;
   services.displayManager.ly.enable = true;
   systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+  services.tailscale.enable = true;
 
   services.avahi = {
     enable = true;
@@ -94,6 +95,7 @@
     protonvpn-gui
     traceroute
     google-chrome
+    yt-dlp
 
     # terminals
     kitty
