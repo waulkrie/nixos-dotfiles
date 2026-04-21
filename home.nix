@@ -106,14 +106,10 @@ in {
       ls = "eza";
       cat = "bat";
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles";
+      vi = "nvim";
+      vim = "nvim";
     };
 
-    # Auto-start Hyprland on login (TTY1)
-    profileExtra = ''
-      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        exec Hyprland
-      fi
-    '';
   };
 
   # Symlink config directories (Tony's approach)
@@ -131,5 +127,6 @@ in {
       name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
     };
+    gtk4.theme = config.gtk.theme;
   };
 }

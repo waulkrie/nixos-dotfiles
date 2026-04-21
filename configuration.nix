@@ -92,7 +92,7 @@
     btop
     fastfetch
     wireguard-tools
-    protonvpn-gui
+    proton-vpn
     traceroute
     google-chrome
     yt-dlp
