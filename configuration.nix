@@ -96,6 +96,7 @@
     traceroute
     google-chrome
     yt-dlp
+    dislocker
 
     # terminals
     kitty
