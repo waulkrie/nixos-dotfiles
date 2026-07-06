@@ -18,7 +18,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # NVIDIA proprietary driver (Quadro M4000)
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
@@ -26,4 +26,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
   hardware.graphics.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    dislocker
+  ];
 }
